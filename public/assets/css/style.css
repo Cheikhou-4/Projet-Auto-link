@@ -1,0 +1,829 @@
+body {
+    background: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #222;
+}
+
+h1, h2, h3, h4 {
+    color: #101010;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar {
+    background: #000 !important;
+    border-bottom: 2px solid #222;
+    box-shadow: 0 2px 8px rgba(30, 42, 120, 0.07);
+    padding: 0.7rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.navbar-brand {
+    font-weight: 700;
+    color: #1976d2 !important;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    margin-left: 1rem;
+    transition: color 0.2s;
+}
+.nav-link:hover, .nav-link.active {
+    color: #ff9800 !important;
+}
+
+.card {
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(30, 42, 120, 0.08);
+    transition: transform 0.15s, box-shadow 0.15s;
+    background: #fafbfc;
+}
+/* Réduire la taille des cards de toutes les voitures (hors vedettes) */
+.car-compact-size {
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+    margin: 0 auto;
+}
+
+.car-compact-size .card-img-top,
+.car-compact-size .carousel-inner img,
+.car-compact-size .image-container > div {
+    width: 100% !important;
+    height: 150px !important;
+    object-fit: cover !important;
+    border-radius: 16px 16px 0 0;
+}
+.car-compact-size .card-body {
+    padding: 0.8rem !important;
+}
+.car-compact-size .card-title {
+    font-size: 1rem !important;
+    margin-bottom: 0.4rem !important;
+}
+.car-compact-size .card-text {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.2rem !important;
+}
+
+/* Uniformiser la taille des cards voitures avec les vedettes */
+.car-vedette-size {
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
+    margin: 0 auto;
+}
+.card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(30, 42, 120, 0.15);
+}
+.card-title {
+    color: #ff9800;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.card-img-top, .carousel-inner img {
+    border-radius: 18px 18px 0 0;
+    object-fit: cover;
+    height: 200px;
+}
+.btn, .btn-primary, .btn-success, .btn-warning, .btn-danger {
+    border-radius: 25px;
+    font-weight: 600;
+    padding: 8px 24px;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+    transition: background 0.2s, color 0.2s;
+}
+.btn-primary {
+    background: linear-gradient(90deg, #ff9800 0%, #ffe082 100%);
+    border: none;
+    color: #101010;
+}
+.btn-primary:hover {
+    background: linear-gradient(90deg, #ffe082 0%, #ff9800 100%);
+    color: #101010;
+}
+.btn-success {
+    background: #43a047;
+    border: none;
+}
+.btn-success:hover {
+    background: #388e3c;
+}
+.btn-danger {
+    background: #e53935;
+    border: none;
+}
+.btn-danger:hover {
+    background: #b71c1c;
+}
+.btn-outline-success {
+    color: #ff9800;
+    border: 2px solid #ff9800;
+    background: transparent;
+}
+.btn-outline-success:hover {
+    background: #ff9800;
+    color: #fff;
+}
+.btn-secondary {
+    background: #222;
+    color: #fff;
+    border: none;
+}
+.btn-secondary:hover {
+    background: #ff9800;
+    color: #fff;
+}
+.form-control, .form-select {
+    border-radius: 12px;
+    border: 1px solid #c5cae9;
+    box-shadow: none;
+    transition: border-color 0.2s;
+}
+.form-control:focus, .form-select:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px #e3f2fd;
+}
+.alert {
+    border-radius: 12px;
+    color: #101010;
+    background: #ffe082;
+    border: 1px solid #ff9800;
+}
+.carousel-inner img {
+    border-radius: 18px;
+}
+footer, .footer {
+    background: #000;
+    color: #fff;
+    padding: 24px 0 12px 0;
+    text-align: center;
+    border-radius: 18px 18px 0 0;
+    margin-top: 48px;
+}
+.badge.bg-warning {
+    background: #ffe082 !important;
+    color: #ff9800 !important;
+}
+.badge.bg-info {
+    background: #ff9800 !important;
+    color: #fff !important;
+}
+.badge.bg-secondary {
+    background: #222 !important;
+    color: #fff !important;
+}
+
+/* Barre de recherche et filtres */
+.search-bar {
+    background: #fafdff;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(30, 42, 120, 0.07);
+    padding: 0.5rem 1rem;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    max-width: 900px;
+    min-width: 0;
+}
+.search-bar input[type="text"], .search-bar select {
+    border-radius: 12px;
+    border: 1px solid #c5cae9;
+    padding: 0.4rem 0.8rem;
+    min-width: 140px;
+    font-size: 1rem;
+}
+.search-bar .btn {
+    min-width: 110px;
+    font-size: 1rem;
+    padding: 8px 18px;
+}
+@media (max-width: 900px) {
+    .search-bar {
+        max-width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .search-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.7rem;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card-img-top, .carousel-inner img {
+        height: 140px;
+    }
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+} 
+
+.carousel-control-prev, .carousel-control-next {
+    width: 56px;
+    height: 56px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ff9800;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(30,42,120,0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    border: 2px solid #fff;
+}
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background: #ffe082;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: none;
+    background-color: transparent;
+    width: 1.7rem;
+    height: 1.7rem;
+    background-size: 100% 100%;
+} 
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+    opacity: 1;
+    pointer-events: auto;
+}
+@media (max-width: 768px) {
+    .carousel-control-prev, .carousel-control-next {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .carousel-control-prev, .carousel-control-next {
+        display: none !important;
+    }
+} 
+
+/* Bouton WhatsApp */
+.btn-success .fab.fa-whatsapp {
+    color: #fff;
+}
+.btn-success:hover .fab.fa-whatsapp {
+    color: #fff;
+}
+
+/* Images cliquables */
+.card a img {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    cursor: pointer;
+}
+.card a:hover img {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+/* Boutons favoris */
+.favorite-btn {
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.favorite-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.favorite-btn.active {
+    background: rgba(220, 53, 69, 0.9) !important;
+    color: white;
+}
+.favorite-btn.active i {
+    color: white !important;
+}
+
+/* Compteur favoris dans la navbar */
+.favorites-nav-btn {
+    position: relative;
+}
+.favorites-count {
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Styles pour les sliders de filtres */
+.noUi-connect {
+    background: #ff9800;
+}
+.noUi-handle {
+    border: 2px solid #ff9800;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.noUi-handle:hover {
+    background: #ff9800;
+    border-color: #ff9800;
+}
+.noUi-handle:before,
+.noUi-handle:after {
+    display: none;
+}
+.noUi-target {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f8f9fa;
+}
+.noUi-horizontal {
+    height: 8px;
+}
+.noUi-horizontal .noUi-handle {
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    top: -6px;
+}
+
+/* Amélioration de la sidebar des filtres */
+.sidebar-filtres {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+.sidebar-filtres::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar-filtres::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+.sidebar-filtres::-webkit-scrollbar-thumb {
+    background: #ff9800;
+    border-radius: 3px;
+}
+
+/* Mode sombre */
+.dark-theme {
+    background: #1a1a1a !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-theme .navbar {
+    background: #000 !important;
+    border-bottom: 2px solid #333;
+}
+
+.dark-theme .card {
+    background: #2d2d2d !important;
+    border: 1px solid #444;
+    color: #e0e0e0;
+}
+
+.dark-theme .card-title {
+    color: #ff9800 !important;
+}
+
+.dark-theme .sidebar-filtres {
+    background: #2d2d2d !important;
+    border: 1px solid #444;
+}
+
+.dark-theme .form-control,
+.dark-theme .form-select {
+    background: #3d3d3d !important;
+    border: 1px solid #555 !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-theme .form-control:focus,
+.dark-theme .form-select:focus {
+    background: #3d3d3d !important;
+    border-color: #ff9800 !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-theme .btn-outline-primary {
+    color: #ff9800 !important;
+    border-color: #ff9800 !important;
+}
+
+.dark-theme .btn-outline-primary:hover,
+.dark-theme .btn-outline-primary.active {
+    background: #ff9800 !important;
+    color: #1a1a1a !important;
+}
+
+.dark-theme .alert {
+    background: #2d2d2d !important;
+    border: 1px solid #444 !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-theme .noUi-target {
+    background: #3d3d3d !important;
+    border: 1px solid #555 !important;
+}
+
+.dark-theme .noUi-handle {
+    background: #2d2d2d !important;
+    border: 2px solid #ff9800 !important;
+}
+
+.dark-theme .noUi-handle:hover {
+    background: #ff9800 !important;
+}
+
+.dark-theme .modal-content {
+    background: #2d2d2d !important;
+    border: 1px solid #444 !important;
+}
+
+.dark-theme .modal-header {
+    border-bottom: 1px solid #444 !important;
+}
+
+.dark-theme .modal-footer {
+    border-top: 1px solid #444 !important;
+}
+
+.dark-theme .btn-close {
+    filter: invert(1);
+}
+
+/* Transition fluide pour le changement de thème */
+body,
+.card,
+.navbar,
+.sidebar-filtres,
+.form-control,
+.form-select,
+.btn,
+.alert,
+.modal-content {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Styles simplifiés - fonctionnalités avancées désactivées */
+
+/* Barre de catégories - Style CoinAfrique */
+.categories-bar {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 20px 0;
+    margin: 30px 0;
+}
+
+.categories-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 0 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.categories-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 80px;
+    padding: 12px 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #666;
+}
+
+.category-item:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.category-item.active {
+    background: #ff9800;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+.category-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.category-item.active .category-icon {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.category-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Responsive pour les catégories */
+@media (max-width: 768px) {
+    .categories-scroll {
+        gap: 15px;
+        padding: 0 5px;
+    }
+    
+    .category-item {
+        min-width: 70px;
+        padding: 10px 6px;
+    }
+    
+    .category-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .category-label {
+        font-size: 11px;
+    }
+}
+
+/* Responsive pour les boutons */
+@media (max-width: 768px) {
+    .favorite-btn,
+    .compare-btn {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.8rem;
+    }
+    .compare-btn {
+        right: 45px !important;
+    }
+} 
+
+/* Boutons de galerie */
+.gallery-btn {
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.gallery-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,1) !important;
+}
+
+/* Galerie modal */
+.gallery-modal {
+    transition: opacity 0.3s ease;
+}
+
+.gallery-nav button {
+    transition: all 0.2s ease;
+}
+.gallery-nav button:hover {
+    background: rgba(255,255,255,0.3) !important;
+    transform: scale(1.1);
+}
+
+.gallery-thumbnails img {
+    transition: all 0.2s ease;
+}
+.gallery-thumbnails img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(255,255,255,0.3);
+}
+
+/* Mode sombre pour la galerie */
+.dark-theme .gallery-modal {
+    background: rgba(0, 0, 0, 0.95) !important;
+}
+
+/* Responsive pour la galerie */
+@media (max-width: 768px) {
+    .gallery-btn {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.8rem;
+        left: 8px !important;
+        top: 8px !important;
+    }
+    
+    .gallery-nav button {
+        padding: 10px !important;
+        font-size: 1.2rem !important;
+    }
+    
+    .gallery-thumbnails img {
+        width: 60px !important;
+        height: 45px !important;
+    }
+} 
+
+/* Boutons de partage */
+.share-btn {
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.share-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,1) !important;
+}
+
+/* Repositionnement des boutons en bas à droite de l'image */
+.card {
+    position: relative;
+}
+
+.card-img-top {
+    position: relative;
+}
+
+/* Positionnement des boutons par rapport à l'image */
+.favorite-btn {
+    position: absolute !important;
+    bottom: 8px !important;
+    right: 8px !important;
+    top: auto !important;
+    z-index: 10 !important;
+    transform: translateY(0) !important;
+}
+
+.compare-btn {
+    position: absolute !important;
+    bottom: 8px !important;
+    right: 50px !important;
+    top: auto !important;
+    z-index: 10 !important;
+    transform: translateY(0) !important;
+}
+
+.gallery-btn {
+    position: absolute !important;
+    bottom: 8px !important;
+    right: 92px !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: 10 !important;
+    transform: translateY(0) !important;
+}
+
+.share-btn {
+    position: absolute !important;
+    bottom: 8px !important;
+    right: 134px !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: 10 !important;
+    transform: translateY(0) !important;
+}
+
+/* S'assurer que les boutons sont bien positionnés sur l'image */
+.card .favorite-btn,
+.card .compare-btn,
+.card .gallery-btn,
+.card .share-btn {
+    position: absolute !important;
+    bottom: 8px !important;
+    z-index: 10 !important;
+}
+
+/* Conteneur d'image pour le positionnement des boutons */
+.image-container {
+    position: relative;
+    display: block;
+}
+
+.image-container .card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Positionnement des boutons dans le conteneur d'image - Version simplifiée */
+.image-container .favorite-btn {
+    position: absolute !important;
+    bottom: 12px !important;
+    right: 12px !important;
+    z-index: 10 !important;
+}
+
+/* Masquer les autres boutons pour simplifier */
+.image-container .compare-btn,
+.image-container .gallery-btn,
+.image-container .share-btn {
+    display: none !important;
+}
+
+/* Amélioration de l'affichage du type de voiture */
+.badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+}
+
+.badge.bg-primary {
+    background: linear-gradient(45deg, #1976d2, #42a5f5) !important;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
+}
+
+.badge.bg-success {
+    background: linear-gradient(45deg, #43a047, #66bb6a) !important;
+    box-shadow: 0 2px 8px rgba(67, 160, 71, 0.3);
+}
+
+/* Assurer que les informations de la carte sont visibles */
+.card-body {
+    position: relative;
+    z-index: 1;
+}
+
+.card-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* S'assurer que les images s'affichent correctement */
+.card-img-top, .carousel-inner img {
+    opacity: 1 !important;
+    transition: transform 0.3s ease;
+}
+
+.card-img-top:hover, .carousel-inner img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive pour tous les boutons d'action */
+@media (max-width: 768px) {
+    .favorite-btn,
+    .compare-btn,
+    .gallery-btn,
+    .share-btn {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.8rem;
+    }
+    
+    .favorite-btn {
+        right: 5px !important;
+        bottom: 5px !important;
+        top: auto !important;
+    }
+    
+    .compare-btn {
+        right: 40px !important;
+        bottom: 5px !important;
+        top: auto !important;
+    }
+    
+    .gallery-btn {
+        right: 75px !important;
+        bottom: 5px !important;
+        top: auto !important;
+        left: auto !important;
+    }
+    
+    .share-btn {
+        right: 110px !important;
+        bottom: 5px !important;
+        top: auto !important;
+        left: auto !important;
+    }
+} 
+
+.card-img-top, .featured-image, .carousel-inner img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 18px 18px 0 0;
+    display: block;
+    overflow: hidden;
+    background: #f5f5f5;
+} 
+
+ 
